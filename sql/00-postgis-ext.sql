@@ -1,3 +1,5 @@
+CREATE DATABASE template_postgis;
+\c template_postgis
 -- Enable PostGIS (includes raster)
 CREATE EXTENSION postgis;
 -- Enable Topology
