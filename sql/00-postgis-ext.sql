@@ -9,5 +9,5 @@ CREATE EXTENSION postgis_topology;
 -- sfcgal not available with all distributions
 CREATE EXTENSION postgis_sfcgal;
 -- fuzzy matching needed for Tiger
-CREATE EXTENSION 'uuid-ossp';
+CREATE EXTENSION "uuid-ossp";
 
