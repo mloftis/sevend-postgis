@@ -1,7 +1,6 @@
+FROM postgres:9.6
 ARG VCS_REF
 ARG BUILD_DATE
-
-FROM postgres:9.6
 
 LABEL org.label-schema.vcs-ref=$VCS_REF \
           org.label-schema.vcs-url="https://github.com/mloftis/sevend-postgis" \
