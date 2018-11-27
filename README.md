@@ -1,6 +1,9 @@
 # sevend-postgis
 [![](https://images.microbadger.com/badges/commit/mloftis/sevend-postgis.svg)](https://microbadger.com/images/mloftis/sevend-postgis "Get your own commit badge on microbadger.com")
+
 [![](https://images.microbadger.com/badges/version/mloftis/sevend-postgis.svg)](https://microbadger.com/images/mloftis/sevend-postgis "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/mloftis/sevend-postgis.svg)](https://microbadger.com/images/mloftis/sevend-postgis "Get your own image badge on microbadger.com")
+
+[![](https://images.microbadger.com/badges/version/mloftis/sevend-postgis:11.svg)](https://microbadger.com/images/mloftis/sevend-postgis:11 "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/mloftis/sevend-postgis:11.svg)](https://microbadger.com/images/mloftis/sevend-postgis:11 "Get your own image badge on microbadger.com")
 
 [![](https://images.microbadger.com/badges/version/mloftis/sevend-postgis:10.6.svg)](https://microbadger.com/images/mloftis/sevend-postgis:10.6 "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/mloftis/sevend-postgis:10.6.svg)](https://microbadger.com/images/mloftis/sevend-postgis:10.6 "Get your own image badge on microbadger.com")
 
