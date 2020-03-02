@@ -2,8 +2,8 @@
 # Official docker image.
 #image: docker:latest
 
-#services:
-#  - docker:dind
+services:
+  - docker:dind
 
 #before_script:
 #  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
@@ -11,15 +11,13 @@
 # so total build time will be 20*NBUILDS/NRUNNERS
 
 # for kubernetes dockers....
-variables:
-  DOCKER_HOST: tcp://docker:2375/
+#variables:
+#  DOCKER_HOST: tcp://docker:2375/
 
 
 build-docker-master: 
   stage: build
   image: docker:latest
-  services:
-    - docker:dind
   script: 
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build --pull -t "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}" "11"
@@ -32,8 +30,6 @@ build-docker-master:
 build-docker-tags:
   stage: build
   image: docker:latest
-  services:
-    - docker:dind
   script: 
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build --pull -t "${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}" "11"
