@@ -11,4 +11,5 @@
 
 This is a Docker image template with postgis extensions used in Sevend/7TD Development and Test
 
+What about PG12?  What about PostGIS 3.x?  This requires a Dockerfile build of PostGIS and pgrouter.  I haven't had time to work on this.
 
