@@ -22,6 +22,7 @@ variables:
 build-docker-master: 
   stage: build
   script: 
+    - echo $CI_REGISTRY
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build --pull -t "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}" "13"
     - docker tag "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}" "${CI_REGISTRY_IMAGE}:latest"
@@ -33,6 +34,7 @@ build-docker-master:
 build-docker-master-12:
   stage: build
   script: 
+    - echo $CI_REGISTRY
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build --pull -t "${CI_REGISTRY_IMAGE}:12-${CI_COMMIT_REF_SLUG}" "12"
     - docker tag "${CI_REGISTRY_IMAGE}:12-${CI_COMMIT_REF_SLUG}" "${CI_REGISTRY_IMAGE}:12"
@@ -44,6 +46,7 @@ build-docker-master-12:
 build-docker-master-13:
   stage: build
   script: 
+    - echo $CI_REGISTRY
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build --pull -t "${CI_REGISTRY_IMAGE}:13-${CI_COMMIT_REF_SLUG}" "13"
     - docker tag "${CI_REGISTRY_IMAGE}:13-${CI_COMMIT_REF_SLUG}" "${CI_REGISTRY_IMAGE}:13"
@@ -57,6 +60,7 @@ build-docker-master-13:
 build-docker-tags:
   stage: build
   script: 
+    - echo $CI_REGISTRY
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     - docker build --pull -t "${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}" "11"
     - docker push "${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}"
