@@ -14,9 +14,9 @@ services:
 #variables:
 #  DOCKER_HOST: tcp://docker:2375/
 #
-variables:
-  DOCKER_HOST: tcp://docker:2376/
-  DOCKER_TLS_CERTDIR: "/certs"
+#variables:
+#  DOCKER_HOST: tcp://docker:2376/
+#  DOCKER_TLS_CERTDIR: "/certs"
 
 
 build-docker-master: 
