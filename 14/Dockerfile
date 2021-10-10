@@ -1,4 +1,4 @@
-FROM postgres:12
+FROM postgres:14
 ARG VCS_REF
 ARG BUILD_DATE
 
@@ -10,5 +10,5 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
 
 
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends postgresql-12-postgis-3 postgresql-12-postgis-3-scripts postgis postgresql-12-pgrouting postgresql-12-pgrouting-scripts postgresql-12-rum postgresql-12-unit
+RUN apt-get install -y --no-install-recommends postgresql-14-postgis-3 postgresql-14-postgis-3-scripts postgis postgresql-14-pgrouting postgresql-14-pgrouting-scripts postgresql-14-rum postgresql-14-unit
 
