@@ -9,6 +9,6 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
           org.label-schema.schema-version="1.0"
 
 
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends postgresql-13-postgis-3 postgresql-13-postgis-3-scripts postgis postgresql-13-pgrouting postgresql-13-pgrouting-scripts postgresql-13-rum postgresql-13-unit
-
+RUN apt-get update; \
+    apt-get install -y --no-install-recommends postgresql-13-postgis-3 postgresql-13-postgis-3-scripts postgis postgresql-13-pgrouting postgresql-13-pgrouting-scripts postgresql-13-rum postgresql-13-unit; \
+    rm -rf /var/lib/apt/lists/*

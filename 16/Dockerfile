@@ -9,6 +9,6 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
           org.label-schema.schema-version="1.0"
 
 
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends postgresql-16-postgis-3 postgresql-16-postgis-3-scripts postgis postgresql-16-pgrouting postgresql-16-pgrouting-scripts postgresql-16-rum postgresql-16-unit
-
+RUN apt-get update; \
+    apt-get install -y --no-install-recommends postgresql-16-postgis-3 postgresql-16-postgis-3-scripts postgis postgresql-16-pgrouting postgresql-16-pgrouting-scripts postgresql-16-rum postgresql-16-unit; \
+    rm -rf /var/lib/apt/lists/*
