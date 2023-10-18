@@ -55,6 +55,18 @@ build-docker-master-13:
   only:
     - master
 
+build-docker-master-16:
+  stage: build
+  script: 
+    - echo $CI_REGISTRY
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" https://$CI_REGISTRY
+    - docker build --pull -t "${CI_REGISTRY_IMAGE}:16-${CI_COMMIT_REF_SLUG}" "16"
+    - docker tag "${CI_REGISTRY_IMAGE}:16-${CI_COMMIT_REF_SLUG}" "${CI_REGISTRY_IMAGE}:16"
+    - docker push "${CI_REGISTRY_IMAGE}:16-${CI_COMMIT_REF_SLUG}"
+    - docker push "${CI_REGISTRY_IMAGE}:16"
+  only:
+    - master
+
 
 
 build-docker-tags:
