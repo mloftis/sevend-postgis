@@ -19,42 +19,6 @@ variables:
   DOCKER_TLS_CERTDIR: "/certs"
 
 
-build-docker-master: 
-  stage: build
-  script: 
-    - echo $CI_REGISTRY
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" https://$CI_REGISTRY
-    - docker build --pull -t "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}" "16"
-    - docker tag "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}" "${CI_REGISTRY_IMAGE}:latest"
-    - docker push "${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}"
-    - docker push "${CI_REGISTRY_IMAGE}:latest"
-  only:
-    - master
-
-build-docker-master-12:
-  stage: build
-  script: 
-    - echo $CI_REGISTRY
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" https://$CI_REGISTRY
-    - docker build --pull -t "${CI_REGISTRY_IMAGE}:12-${CI_COMMIT_REF_SLUG}" "12"
-    - docker tag "${CI_REGISTRY_IMAGE}:12-${CI_COMMIT_REF_SLUG}" "${CI_REGISTRY_IMAGE}:12"
-    - docker push "${CI_REGISTRY_IMAGE}:12-${CI_COMMIT_REF_SLUG}"
-    - docker push "${CI_REGISTRY_IMAGE}:12"
-  only:
-    - master
-
-build-docker-master-13:
-  stage: build
-  script: 
-    - echo $CI_REGISTRY
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" https://$CI_REGISTRY
-    - docker build --pull -t "${CI_REGISTRY_IMAGE}:13-${CI_COMMIT_REF_SLUG}" "13"
-    - docker tag "${CI_REGISTRY_IMAGE}:13-${CI_COMMIT_REF_SLUG}" "${CI_REGISTRY_IMAGE}:13"
-    - docker push "${CI_REGISTRY_IMAGE}:13-${CI_COMMIT_REF_SLUG}"
-    - docker push "${CI_REGISTRY_IMAGE}:13"
-  only:
-    - master
-
 build-docker-master-16:
   stage: build
   script: 
@@ -67,36 +31,17 @@ build-docker-master-16:
   only:
     - master
 
-
-
-build-docker-tags:
+build-docker-master-17:
   stage: build
   script: 
     - echo $CI_REGISTRY
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" https://$CI_REGISTRY
-    - docker build --pull -t "${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}" "13"
-    - docker push "${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}"
+    - docker build --pull -t "${CI_REGISTRY_IMAGE}:17-${CI_COMMIT_REF_SLUG}" "17"
+    - docker tag "${CI_REGISTRY_IMAGE}:17-${CI_COMMIT_REF_SLUG}" "${CI_REGISTRY_IMAGE}:17"
+    - docker tag "${CI_REGISTRY_IMAGE}:17-${CI_COMMIT_REF_SLUG}" "${CI_REGISTRY_IMAGE}:latest"
+    - docker push "${CI_REGISTRY_IMAGE}:17-${CI_COMMIT_REF_SLUG}"
+    - docker push "${CI_REGISTRY_IMAGE}:17"
+    - docker push "${CI_REGISTRY_IMAGE}:latest"
   only:
-    - tags
+    - master
 
-
-    
-#build-master:
-#  stage: build
-#  script:
-#    - docker build --pull -t "$CI_REGISTRY_IMAGE:snapshot-ubuntu" --build-arg MAKEFLAGS="-j$(($(grep -c ^processor /proc/cpuinfo) + 1))" docker-images/snapshot/ubuntu
-#    - docker push "$CI_REGISTRY_IMAGE:snapshot-ubuntu"
-#    - docker build --pull -t "$CI_REGISTRY_IMAGE:4.0-ubuntu" --build-arg MAKEFLAGS="-j$(($(grep -c ^processor /proc/cpuinfo) + 1))" docker-images/4.0/ubuntu
-#    - docker tag "$CI_REGISTRY_IMAGE:4.0-ubunutu" "$CI_REGISTRY_IMAGE:latest"
-#    - docker push "$CI_REGISTRY_IMAGE:4.0-ubuntu"
-#    - docker push "$CI_REGISTRY_IMAGE:latest"
-#  only:
-#    - master
-
-#build:
-#  stage: build
-#  script:
-#    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" --build-arg MAKEFLAGS="-j$(($(grep -c ^processor /proc/cpuinfo) + 1))" docker-images/4.0/ubuntu
-#    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-#  except:
-#    - master
