@@ -10,7 +10,7 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
 
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y upgrade \
+    DEBIAN_FRONTEND=noninteractive apt-get -y upgrade && \
     apt-get install -y --no-install-recommends postgresql-17-postgis-3 postgresql-17-postgis-3-scripts postgis postgresql-17-pgrouting postgresql-17-pgrouting-scripts postgresql-17-rum postgresql-17-unit && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*

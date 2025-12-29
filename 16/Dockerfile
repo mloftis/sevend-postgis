@@ -10,7 +10,7 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
 
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y upgrade \
+    DEBIAN_FRONTEND=noninteractive apt-get -y upgrade && \
     apt-get install -y --no-install-recommends postgresql-16-postgis-3 postgresql-16-postgis-3-scripts postgis postgresql-16-pgrouting postgresql-16-pgrouting-scripts postgresql-16-rum postgresql-16-unit && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
